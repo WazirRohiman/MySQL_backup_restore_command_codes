@@ -1,0 +1,41 @@
+
+    
+
+// Create a new database with any name using MySQL CLI.
+
+create database world_P1;
+
+// Switch to database
+use *database_name*;
+
+// Use sql script to complete the database creation process.
+
+source *doc_name.sql*;
+
+// Try to retrieve all the records to check.
+
+SELECT * FROM *database_name*;
+
+// If you fail, try updating the database using another updated sql script.
+
+source *document_name.sql*;
+
+// To perform a logical backup of a table exit the MySQL CLI.
+
+\q
+
+// To perform a logical backup of a table on the terminal.
+
+mysqldump --host=*enter_hostname* --port=*enter_port#* --user=root --password *database_name* *table_name* > *file_name_to_be_saved.sql*
+
+// Drop the table and try to restore it with the backup you created to validate if your created backup is in working state.
+
+mysql --host=*enter_hostname* --port=*enter_port#* --user=root --password --execute="DROP TABLE *table_to_be_deleted*;"
+
+// Drop the table and try to restore it with the backup you created to validate if your created backup is in working state.
+
+mysql --host=*enter_hostname* --port=*enter_port#* --user=root --password *database_name* < *file_to_be_restored.sql*
+
+// Run a check.
+
+mysql --host=*enter_hostname* --port=*enter_port#* --user=root --password --execute="SELECT * FROM world_P1.city;"
